@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang=es>
+	<head>
+		<meta charset=utf-8 />
+		<meta name=viewport content="width=device-width, initial-scale=1" />
+		<meta name=author content='antoniocarlosmorunogomez.gudalupe@alumnado.fundacionloyola.net' />
+		<title>CRUD Personajes</title>
+		<link rel=stylesheet href=css/estilos.css />
+	</head>
+	<body>
+		<div id="divInicio">
+			<h1>Lista de personajes</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Tipo</th>
+						<th>Fecha</th>
+						<th>Operaciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Bob Esponja</td>
+						<td>Esponja</td>
+						<td>01/1995</td>
+						<td>🗑 ✏ 👁</td>
+					</tr>
+					<tr>
+						<td>Calamardo</td>
+						<td>Estrella de mar</td>
+						<td>03/1635</td>
+						<td>🗑 ✏ 👁</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="divAlta">
+			<h1>Registro de personaje</h1>
+			<form>
+				<label for="nombre">Nombre</label>
+				<input name="nombre" type="text"/>
+				<label for="fecha">Fecha de aparición</label>
+				<input name="fecha" type="date"/>
+				<label for="tipo">Tipo</label>
+				<input name="tipo" type="text"/>
+				<label for="descripcion">Descripción</label>
+				<input name="descripcion" type="textarea"/>
+				<label for="url">Url con más información</label>
+				<input name="url" type="text"/>
+				<label for="imagen">Imágen</label>
+				<input name="imagen" type="file">
+			</form>
+		</div>
+		<div id="divInspeccionar">
+			<h1>Inspeccionar Personaje</h1>
+		</div>
+		<script type=module src=app.js></script>
+	</body>
+</html>

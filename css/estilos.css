@@ -1,0 +1,13 @@
+body > div {
+	display:none;
+}
+
+nav li{
+	list-style: none;
+	display:inline-block;
+	cursor:pointer;
+}
+
+#divInicio img{
+	width:4rem;
+}
