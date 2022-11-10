@@ -16,19 +16,31 @@ export class VistaAlta extends Vista{
 		@param div {HTMLDivElement} Div principal de la vista.
 		@param controlador {Controlador} Controlador de la vista.
 	**/
-	constructor(div, controlador){
+	constructor(div,controlador){
 		super(div)
 		this.controlador = controlador
-		this.crear()
+		
+		//Cojo referencias a los elementos del interfaz
+		this.iNombre = this.div.getElementsByTagName('input')[0]
+		this.iFecha = this.div.getElementsByTagName('input')[1]
+		this.iTipo = this.div.getElementsByTagName('input')[2]
+		this.iDescripcion = this.div.getElementsByTagName('input')[3]
+		this.iUrl = this.div.getElementsByTagName('input')[4]
+		this.iImagen = this.div.getElementsByTagName('input')[5]
+		
+		this.btnCancelar = this.div.getElementsByTagName('button')[0]
+		this.btnAceptar = this.div.getElementsByTagName('button')[1]
+		
+		this.btnCancelar.onclick = this.cancelar.bind(this)
+		this.btnAceptar.onclick = this.aceptar.bind(this)
 	}
-	/**
-	* Crea el interfaz de juego
-	**/
-	crear(){
-		this.divAreaJuego = document.createElement('div')
-		this.div.appendChild(this.divAreaJuego)
-		this.divAreaJuego.style.width = '400px'
-		this.divAreaJuego.style.height = '600px'
-		this.divAreaJuego.style.backgroundColor = 'black'
+	
+	cancelar(){
+		this.controlador.pulsarBtnCancelar()
 	}
+	aceptar(){
+		this.controlador.pulsarBtnAceptar(this.iNombre.value, this.iFecha.value, this.iTipo.value, this.iDescripcion.value, this.iUrl.value, this.iImagen.value)
+	}
+	
+	
 }

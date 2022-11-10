@@ -2,12 +2,23 @@ body > div {
 	display:none;
 }
 
-nav li{
-	list-style: none;
-	display:inline-block;
-	cursor:pointer;
-}
 
 #divInicio img{
 	width:4rem;
+}
+
+table, td, tr, th{
+	border-collapse: collapse;
+	border: 1px solid black;
+	padding:1px 10px;
+	text-align:center;
+}
+
+table{
+	margin:auto;
+	width:60%;
+}
+
+td > span:hover{
+	cursor:pointer;
 }
