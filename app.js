@@ -36,10 +36,11 @@ class Controlador{
 		this.vistaAlta.mostrar(true)
 		this.vistaInspeccionar.mostrar(false)
 	}
-	pulsarIconoInspeccionar(){
+	pulsarIconoInspeccionar(dato){
 		this.vistaInicio.mostrar(false)
 		this.vistaAlta.mostrar(false)
 		this.vistaInspeccionar.mostrar(true)
+		this.vistaInspeccionar.crearInspeccionar(dato)
 	}
 
 	/**
@@ -56,6 +57,7 @@ class Controlador{
 		console.log('btn aceptar')
 		this.modelo.insertar(nombre, fecha, tipo, descripcion, url, imagen)
 		this.pulsarBtnCancelar()
+		this.modelo.insertDB(nombre, fecha, tipo, descripcion, url, imagen)
 	}
 	/**
 	*Atención al click en el icono eliminar del CRUD.

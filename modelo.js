@@ -3,6 +3,19 @@ export class Modelo{
 	constructor(){
 		this.lista = []
 		this.callbacks = [] //Array de callbacks para implementar el observador
+		this.db = null		
+		let peticion = window.indexedDB.open("BBDDPersonajes",1)
+		peticion.onsuccess = (evento) => {
+			this.db = evento.target.result
+			this.avisar() //Informo al controlador que he terminado
+		}
+		peticion.onupgradeneeded = (evento) => {
+			this.db = evento.target.result
+			const objectStore = this.db.createObjectStore('tablaPersonajes',{autoIncrement:true})
+
+			this.avisar() //Informo al controlador que he terminado
+		}
+		
 	}
 	/**
 	* Registra un objeto para informarle de los cambios en el Modelo
@@ -38,6 +51,32 @@ export class Modelo{
 				this.lista.splice(i,1)
 		this.avisar()
 	}
+	/**
+	*Funciones IndexedDB
+	**/
+	insertDB(nombre, fecha, tipo, descripcion, url, imagen){
+		const objectStore = this.db.transaction('tablaPersonajes', 'readwrite').objectStore('tablaPersonajes')
+		const peticion = objectStore.get(1)
+		let personaje = {
+			nombre: nombre,
+			fecha: fecha,
+			tipo: tipo,
+			descripcion: descripcion,
+			url: url,
+			imagen: imagen
+		}
+		objectStore.add(personaje)
+		
+		this.avisar()
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	* Devuelve los datos del modelo.
 	* En este modelo tan simple, es fácil. En proyectos más complejos, será más elaborado

@@ -29,6 +29,12 @@ export class VistaInicio extends Vista{
 		console.log("entra")
 		this.controlador.pulsarBtnAlta()
 	}
+	/*
+		pedirDatos(){
+			let datos = this.controlador.getModelo().getDatos(this.actualizarTabla)
+		}
+	
+	*/
 	actualizar(){
 	    this.borrarTabla()
 	    for(let dato of this.modelo.getDatos()){
@@ -80,8 +86,8 @@ export class VistaInicio extends Vista{
 	/**
 	* Cambia la vista a la página del personaje
 	*/
-	inspeccionar(){
-		this.controlador.pulsarIconoInspeccionar()
+	inspeccionar(dato){
+		this.controlador.pulsarIconoInspeccionar(dato)
 		console.log("He pulsado icono ojo")
 	}
 }
