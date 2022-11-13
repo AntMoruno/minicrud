@@ -1,3 +1,9 @@
+/**
+	@file Contiene la vista de inicio de la aplicación (lista de personajes)
+	@author Antonio Moruno <antoniocarlosmorunogomez.guadalupe@alumnado.fundacionloyola.net>
+	@license GPL-3.0-or-later
+**/
+
 import {Vista} from "./vista.js"
 
 export class VistaInicio extends Vista{
@@ -35,9 +41,10 @@ export class VistaInicio extends Vista{
 		}
 	
 	*/
-	actualizar(){
+	async actualizar(){
 	    this.borrarTabla()
 	    for(let dato of this.modelo.getDatos()){
+			console.log(dato)
 	        let tr = document.createElement('tr')
 	        this.tabla.appendChild(tr)
 	        let td1 = document.createElement('td')

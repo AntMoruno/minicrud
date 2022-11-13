@@ -1,3 +1,9 @@
+/**
+	@file Contiene la vista de la información de personajes de la aplicación
+	@author Antonio Moruno <antoniocarlosmorunogomez.guadalupe@alumnado.fundacionloyola.net>
+	@license GPL-3.0-or-later
+**/
+
 import {Vista} from './vista.js'
 
 export class VistaInspeccionar extends Vista{

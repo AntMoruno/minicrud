@@ -1,6 +1,5 @@
 console.log('Cargado')
 import {VistaInicio} from "./vistainicio.js"
-import {VistaNav} from "./vistanav.js"
 import {VistaAlta} from "./vistaalta.js"
 import {VistaInspeccionar} from "./vistainspeccionar.js"
 import {Modelo} from './modelo.js'
@@ -25,16 +24,20 @@ class Controlador{
 		this.vistaInspeccionar = new VistaInspeccionar(this.divInspeccionar)
 		
 		this.vistaInicio.mostrar(true)
+		//this.modelo.iniciarBaseDatos()
+		this.modelo.prueba()
 	}
 	pulsarBtnCancelar(){
+		this.vistaInicio.actualizar()
 		this.vistaInicio.mostrar(true)
 		this.vistaAlta.mostrar(false)
-		this.vistaInspeccionar.mostrar(false)		
+		this.vistaInspeccionar.mostrar(false)
 	}
 	pulsarBtnAlta(){
 		this.vistaInicio.mostrar(false)
 		this.vistaAlta.mostrar(true)
 		this.vistaInspeccionar.mostrar(false)
+		this.vistaInicio.actualizar()
 	}
 	pulsarIconoInspeccionar(dato){
 		this.vistaInicio.mostrar(false)
@@ -55,9 +58,12 @@ class Controlador{
 	**/
 	pulsarBtnAceptar(nombre, fecha, tipo, descripcion, url, imagen){
 		console.log('btn aceptar')
-		this.modelo.insertar(nombre, fecha, tipo, descripcion, url, imagen)
-		this.pulsarBtnCancelar()
+		//this.modelo.insertar(nombre, fecha, tipo, descripcion, url, imagen)
+		
 		this.modelo.insertDB(nombre, fecha, tipo, descripcion, url, imagen)
+		//window.alert("Datos guardados correctamente")
+		this.modelo.leerDatos()
+		this.pulsarBtnCancelar()
 	}
 	/**
 	*Atención al click en el icono eliminar del CRUD.

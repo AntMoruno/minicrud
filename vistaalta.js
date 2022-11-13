@@ -1,6 +1,6 @@
 /**
-	@file Contiene la vista del CRUD de la aplicación
-	@author Miguel Jaque <mjaque@fundacionloyola.es>
+	@file Contiene la vista del alta de la aplicación
+	@author Antonio Moruno <antoniocarlosmorunogomez.guadalupe@alumnado.fundacionloyola.net>
 	@license GPL-3.0-or-later
 **/
 
